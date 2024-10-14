@@ -23,7 +23,10 @@ function addHoverEffect() {
 }
 // a button that gets size for grid from user
 button.addEventListener('click', function () {
-    let size = prompt("grid size: ")
+    let size = prompt("Enter grid size (max 100): ")
+    if (size > 100) {
+        size = 100;
+    };
     createGrid(size);
 })
 
