@@ -7,9 +7,10 @@ function createGrid(size) {
     // needs to clear any existing content before creation
     container.innerHTML = '';
     // loop to create columns and rows
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < size * size; i++) {
         // each square will be represented by a div
         const div = document.createElement('div');
+        div.classList.add('grid-item')
         container.appendChild(div);
     }
 }
