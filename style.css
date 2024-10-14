@@ -9,9 +9,16 @@ body {
 }
 
 .container {
-    height: 960px;
-    width: 960px;
+    height: 500px;
+    width: 500px;
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid #000;
+}
+
+.grid-item {
+    flex: 1 0 auto;
+    width: 25px;
+    height: 25px;
     border: 1px solid #000;
 }
