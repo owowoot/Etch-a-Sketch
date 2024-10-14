@@ -5,18 +5,25 @@ const button = document.querySelector('#generateNewGrid')
 // create a function that creates a grid
 function createGrid(size) {
     // needs to clear any existing content before creation
+    container.innerHTML = '';
     // loop to create columns and rows
     for (let i = 0; i < size; i++) {
-
+        // each square will be represented by a div
+        const div = document.createElement('div');
+        container.appendChild(div);
     }
-    // each square will be represented by a div    
 }
 
 
+
 // a hover effect that changes the grid color
+function addHoverEffect() {
+
+}
+// a button that gets size for grid from user
 button.addEventListener('click', function () {
     let size = prompt("grid size: ")
-    createGrid(size)
+    createGrid(size);
 })
-// a button that gets size for grid from user
 
+createGrid(16);
