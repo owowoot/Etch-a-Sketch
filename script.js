@@ -19,7 +19,12 @@ function createGrid(size) {
 
 // a hover effect that changes the grid color
 function addHoverEffect() {
-
+    const squares = document.querySelectorAll('.grid-item');
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].addEventListener('mouseenter', function () {
+            this.style.backgroundColor = 'black';
+        });
+    }
 }
 // a button that gets size for grid from user
 button.addEventListener('click', function () {
@@ -31,3 +36,4 @@ button.addEventListener('click', function () {
 })
 
 createGrid(16);
+addHoverEffect();
