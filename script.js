@@ -19,10 +19,22 @@ function createGrid(size) {
 
 // a hover effect that changes the grid color
 function addHoverEffect() {
-    const squares = document.querySelectorAll('.grid-item');
+    let isDrawing = false;
+    let squares = document.querySelectorAll('.grid-item');
+
+    document.addEventListener('mousedown', function () {
+        isDrawing = true;
+    });
+
+    document.addEventListener('mouseup', function () {
+        isDrawing = false;
+    });
+
     for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener('mouseenter', function () {
-            this.style.backgroundColor = 'black';
+        squares[i].addEventListener('mousemove', function () {
+            if (isDrawing) {
+                this.style.backgroundColor = 'black';
+            };
         });
     }
 }
