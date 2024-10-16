@@ -17,8 +17,9 @@ body {
 }
 
 .grid-item {
-    flex: 1 0 auto;
-    width: 25px;
-    height: 25px;
+    flex: 1;
+    flex-basis: calc(100% / 16);
+    height: calc(100% / 16);
     border: 1px solid #000;
+    box-sizing: border-box;
 }
