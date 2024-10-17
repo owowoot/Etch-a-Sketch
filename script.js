@@ -6,6 +6,8 @@ const button = document.querySelector('#generateNewGrid')
 function createGrid(size) {
     // needs to clear any existing content before creation
     container.innerHTML = '';
+    // calculate the size for each grid item
+    const squareSize = 500 / size;
     // loop to create columns and rows
     for (let i = 0; i < size * size; i++) {
         // each square will be represented by a div
@@ -13,6 +15,9 @@ function createGrid(size) {
         div.classList.add('grid-item')
         container.appendChild(div);
     }
+
+    container.style.display = 'flex';
+    container.style.flexWrap = 'wrap';
 }
 
 
