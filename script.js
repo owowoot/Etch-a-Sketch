@@ -13,6 +13,9 @@ function createGrid(size) {
         // each square will be represented by a div
         const div = document.createElement('div');
         div.classList.add('grid-item')
+
+        div.style.flexBasis = `${squareSize}px`
+        div.style.height = `${squareSize}px`
         container.appendChild(div);
     }
 
