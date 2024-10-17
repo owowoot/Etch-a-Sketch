@@ -2,6 +2,14 @@
 const container = document.querySelector('.container')
 const button = document.querySelector('#generateNewGrid')
 
+// Generate random RGB color
+function getRGBColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+};
+
 // create a function that creates a grid
 function createGrid(size) {
     // needs to clear any existing content before creation
@@ -14,8 +22,12 @@ function createGrid(size) {
         const div = document.createElement('div');
         div.classList.add('grid-item')
 
-        div.style.flexBasis = `${squareSize}px`
-        div.style.height = `${squareSize}px`
+        // Assign a random RGG color
+        const randomColor = getRGBColor();
+        div.style.backgroundColor = randomColor;
+
+        div.style.flexBasis = `${squareSize}px`;
+        div.style.height = `${squareSize}px`;
         container.appendChild(div);
     }
 
