@@ -21,6 +21,8 @@ function createGrid(size) {
 
     container.style.display = 'flex';
     container.style.flexWrap = 'wrap';
+
+    addHoverEffect();
 }
 
 
@@ -56,4 +58,3 @@ button.addEventListener('click', function () {
 })
 
 createGrid(16);
-addHoverEffect();
