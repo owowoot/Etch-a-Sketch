@@ -11,9 +11,9 @@ paletteContainer.classList.add('palette');
 document.body.insertBefore(paletteContainer, document.body.firstChild);
 for (let i = 0; i < colorPalette.length; i++) {
     let colorButton = document.createElement('button');
-    colorButton.style.backgroundColor = [i];
+    colorButton.style.backgroundColor = colorPalette[i];
     colorButton.classList.add('color-option');
-    colorButton.setAttribute('data-color', colors[i]);
+    colorButton.setAttribute('data-color', colorPalette[i]);
 
     colorButton.addEventListener('click', function () {
         defaultColor = this.getAttribute('data-color')
@@ -103,6 +103,7 @@ button.addEventListener('click', function () {
         size = 100;
     };
     createGrid(size);
+    addHoverEffect();
 })
 
 createGrid(16);
