@@ -4,6 +4,7 @@ const button = document.querySelector('#generateNewGrid')
 // color palette
 const colorPalette = ['red', 'blue', 'yellow', 'green', 'white', 'black'];
 let defaultColor = 'black';
+let isDrawing = false;
 
 const paletteContainer = document.createElement('div');
 paletteContainer.classList.add('palette');
@@ -22,14 +23,6 @@ for (let i = 0; i < colorPalette.length; i++) {
     paletteContainer.appendChild(colorButton);
 }
 
-// Generate random RGB color
-// function getRGBColor() {
-//     const r = Math.floor(Math.random() * 256);
-//     const g = Math.floor(Math.random() * 256);
-//     const b = Math.floor(Math.random() * 256);
-//     return `rgb(${r}, ${g}, ${b})`;
-// };
-
 // create a function that creates a grid
 function createGrid(size) {
     // needs to clear any existing content before creation
@@ -44,32 +37,21 @@ function createGrid(size) {
         div.style.flexBasis = squareSize + 'px';
         div.style.height = squareSize + 'px';
         div.style.backgroundColor = 'white';
-        div.setAttribute('data-opacity', '0');
+        div.setAttribute('data-darken', '0');
 
         container.appendChild(div)
-
-        // // Assign a random RGG color
-        // const randomColor = getRGBColor();
-        // div.style.backgroundColor = randomColor;
-        // // initialize darkening
-        // div.setAttribute('data-darken', '0');
-
-        // div.style.flexBasis = `${squareSize}px`;
-        // div.style.height = `${squareSize}px`;
-        // container.appendChild(div);
     }
 
     container.style.display = 'flex';
     container.style.flexWrap = 'wrap';
 
-    addHoverEffect();
+    drawEffect();
 }
 
 
 
-// a hover effect that changes the grid color
-function addHoverEffect() {
-    let isDrawing = false;
+// a draw effect that changes the grid color
+function drawEffect() {
     let squares = document.querySelectorAll('.grid-item');
 
     document.addEventListener('mousedown', function () {
@@ -88,8 +70,7 @@ function addHoverEffect() {
                     darkenColor += 0.1;
                     this.setAttribute('data-darken', darkenColor);
 
-                    let bgColor = this.style.backgroundColor;
-
+                    this.style.backgroundColor = defaultColor
                     this.style.filter = `brightness(${1 - darkenColor})`;
                 }
             };
@@ -103,8 +84,8 @@ button.addEventListener('click', function () {
         size = 100;
     };
     createGrid(size);
-    addHoverEffect();
+    drawEffect();
 })
 
 createGrid(16);
-addHoverEffect();
+drawEffect();
